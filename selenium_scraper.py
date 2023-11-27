@@ -238,13 +238,14 @@ def main() -> None:
 
     try:
         source_code = get_source_code(driver, url)
-    except Exception:
+    except Exception as _ex:
         source_code = None
-        print('Can\'t get source_code')
+        logging.info(f'Can\'t get source_code. About: {str(_ex)}')
 
     if source_code:
         parse_data(source_code)
     logging.info('Start user action')
+
     some_user_action(driver)
 
     time.sleep(5)
