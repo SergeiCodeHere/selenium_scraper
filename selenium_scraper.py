@@ -61,7 +61,7 @@ def parse_data(source_code: str) -> None:
     logging.info('Start write')
 
     with open('result.csv', 'w', encoding='utf-8') as file:
-        writer = csv.writer(file, delimiter='-', lineterminator='\r')
+        writer = csv.writer(file, delimiter=':', lineterminator='\r')
         for row in rows[:-1]:
             cols = row.find_all('td')
             cols_arr = [element.text.strip() for element in cols]

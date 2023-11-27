@@ -1,1 +1,1 @@
-# Веб скраппер с использованием SELENIUM
+# SELENIUM web scraper
