@@ -38,7 +38,7 @@ def get_proxy() -> dict[str, str] | None:
 
 
 def get_ip(headers: dict[str, str], proxy: dict[str, str] | None) -> str | None:
-    cur_ip = None if proxy is None else proxy.get('https').split(':')[1]
+    cur_ip = None if proxy is None else proxy.get('https').replace('http://', '').split(':')[0]
 
     resp_2ip = requests.get('https://2ip.ru/', headers=headers, proxies=proxy)
 
