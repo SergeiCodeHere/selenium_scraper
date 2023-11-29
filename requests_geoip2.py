@@ -117,10 +117,13 @@ def get_cities(headers: dict[str, str], proxy: dict[str, str] | None, time_zone:
                 '"': ''
             })
 
-            if cities:
+            if len(cities) != 0:
                 city_arr = []
                 for city in cities:
                     city_arr.append(city.text.translate(trans_table).split(',')[0].strip())
+            else:
+                logging.info(f"There is no city with this timezone")
+                return None
 
             logging.info(f"Cities received: {', '.join(city_arr)}")
 
